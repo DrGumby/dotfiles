@@ -34,7 +34,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'joshdick/onedark.vim'
+Plugin 'KeitaNakamura/neodark.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
@@ -43,7 +43,7 @@ call vundle#end()
 filetype plugin indent on
 
 
-colorscheme onedark
+colorscheme neodark
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
