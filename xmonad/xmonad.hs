@@ -11,6 +11,8 @@ import XMonad
 import Data.Monoid
 import System.Exit
 
+import Graphics.X11.ExtraTypes.XorgDefault
+
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run
@@ -143,7 +145,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[1..9], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_plus, xK_ecaron, xK_scaron, xK_ccaron, xK_rcaron, xK_zcaron, xK_yacute, xK_aacute, xK_iacute]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
@@ -253,6 +255,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 -- By default, do nothing.
 myStartupHook = do
 	spawnOnce "picom &"
+	spawnOnce "setxkbmap -model pc105 -layout cz,us -option grp:alt_shift_toggle"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
