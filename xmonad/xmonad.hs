@@ -59,7 +59,7 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 -- Border colors for unfocused and focused windows, respectively.
 --
 myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myFocusedBorderColor = "#aa00ff"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -256,6 +256,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 myStartupHook = do
 	spawnOnce "picom &"
 	spawnOnce "setxkbmap -model pc105 -layout cz,us -option grp:alt_shift_toggle"
+	spawnOnce "feh --bg-scale $HOME/wallpaper.png"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
